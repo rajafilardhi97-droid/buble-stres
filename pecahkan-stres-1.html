@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pecahkan Stres</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap">
+<style>
+:root{--bg:#f3effb;--g1:#cfe3ff;--g2:#ffd6ea;--ink:#2a2650;--soft:#6d6a99;--card:rgba(255,255,255,.5);--edge:rgba(120,110,190,.25);--l1:92%;--l2:74%;--l3:45%;--pl:82%;--pl2:72%;--ring:#8b7cf0;--pill:#fff;--b1:#7a6cf0;--b2:#e56fb5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13152b;--g1:rgba(70,90,220,.35);--g2:rgba(190,70,170,.28);--ink:#ece9ff;--soft:#9a98c8;--card:rgba(255,255,255,.06);--edge:rgba(255,255,255,.12);--l1:68%;--l2:48%;--l3:25%;--pl:26%;--pl2:20%;--ring:#a99cff;--pill:#25284a}}
+:root[data-theme="dark"]{--bg:#13152b;--g1:rgba(70,90,220,.35);--g2:rgba(190,70,170,.28);--ink:#ece9ff;--soft:#9a98c8;--card:rgba(255,255,255,.06);--edge:rgba(255,255,255,.12);--l1:68%;--l2:48%;--l3:25%;--pl:26%;--pl2:20%;--ring:#a99cff;--pill:#25284a}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);background:radial-gradient(70% 45% at 12% 8%,var(--g1),transparent 70%),radial-gradient(60% 45% at 90% 92%,var(--g2),transparent 70%),var(--bg)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;height:100%;background:transparent;color:var(--ink);font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;display:flex;flex-direction:column;align-items:center;padding:16px;overflow:auto;-webkit-user-select:none;user-select:none}
+main{margin:auto;display:flex;flex-direction:column;align-items:center;gap:14px;width:100%}
+h1{margin:0;font-size:1.8rem;font-weight:800;letter-spacing:-.02em}
+.sub{margin:0;color:var(--soft);font-weight:600;text-align:center;max-width:34ch;line-height:1.45;font-size:.95rem}
+.pill{display:flex;align-items:baseline;gap:8px;padding:6px 16px;border-radius:999px;background:var(--card);border:1px solid var(--edge);font-weight:700;color:var(--soft)}
+.pill b{font-size:1.6rem;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.aff{margin:0;min-height:1.6em;font-weight:800;font-size:1.05rem;text-align:center;color:var(--ring)}
+.aff.s{animation:fade .5s ease-out}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}}
+.tray{width:min(94vw,420px);padding:14px;border-radius:30px;background:var(--card);border:1px solid var(--edge);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 24px 44px -24px rgba(60,50,130,.45),inset 0 1px 0 rgba(255,255,255,.4)}
+#grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;touch-action:none}
+.bar{height:6px;border-radius:9px;background:var(--edge);margin-top:14px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--b1),var(--b2));transition:width .25s ease}
+.b{aspect-ratio:1;border-radius:50%;cursor:pointer;position:relative;
+background:radial-gradient(circle at 30% 24%,#fff 0 6%,rgba(255,255,255,0) 15%),radial-gradient(circle at 72% 80%,rgba(255,255,255,.5) 0 7%,transparent 19%),radial-gradient(circle at 50% 50%,hsl(var(--h) 85% var(--l1)/.55),hsl(var(--h) 80% var(--l2)/.92) 100%);
+box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55),inset 0 -7px 12px hsl(var(--h) 70% var(--l3)/.45),0 7px 12px -3px hsl(var(--h) 60% 40%/.35);
+transition:transform .12s ease,box-shadow .15s,background .2s}
+.b::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,transparent 0,rgba(255,255,255,.55) 12%,transparent 35%,hsl(calc(var(--h) + 70) 100% 82%/.45) 60%,transparent 85%);opacity:.7;pointer-events:none;transition:opacity .2s}
+.b:active:not(.p){transform:scale(.94)}
+.b.p{transform:scale(.78);background:radial-gradient(circle at 50% 62%,hsl(var(--h) 30% var(--pl)/.75),hsl(var(--h) 25% var(--pl2)/.55));box-shadow:inset 0 5px 9px rgba(0,0,0,.28);cursor:default}
+.b.p::before{opacity:0}
+.b.p::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid hsl(var(--h) 90% 70%);opacity:0;animation:ring .38s ease-out}
+@keyframes ring{from{transform:scale(.6);opacity:.95}to{transform:scale(1.45);opacity:0}}
+.b.n{animation:in .45s cubic-bezier(.3,1.5,.5,1) backwards}
+@keyframes in{from{transform:scale(.3);opacity:0}}
+.pt{position:fixed;border-radius:50%;pointer-events:none;z-index:4;animation:pt .55s ease-out forwards}
+@keyframes pt{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:.2}}
+.fl{position:fixed;transform:translateX(-50%);pointer-events:none;font-weight:800;font-size:.95rem;color:var(--ink);background:var(--pill);border:1px solid var(--edge);padding:5px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(60,50,130,.3);white-space:nowrap;animation:up 1.1s ease-out forwards;z-index:5}
+@keyframes up{from{opacity:0;margin-top:0}15%{opacity:1}to{opacity:0;margin-top:-64px}}
+.row{display:flex;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:12px 24px;background:linear-gradient(135deg,var(--b1),var(--b2));color:#fff;cursor:pointer;min-height:44px;box-shadow:0 8px 16px -8px var(--b1)}
+button.alt{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--edge)}
+button:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.b,.b.p::after,.b.n,.aff.s{animation:none;transition:none}.fl,.pt{display:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Pecahkan Stres</h1>
+<p class="sub">Tarik napas pelan, lalu hembuskan saat menekan. Geser jari untuk memecah banyak sekaligus.</p>
+<div class="pill"><b id="n">0</b> gelembung pecah</div>
+<p class="aff" id="aff" aria-live="polite"></p>
+<div class="tray">
+<div id="grid" role="group" aria-label="Papan gelembung"></div>
+<div class="bar"><i id="bar"></i></div>
+</div>
+<div class="row">
+<button id="reset">Isi ulang</button>
+<button id="snd" class="alt" aria-pressed="true">Suara: nyala</button>
+</div>
+</main>
+<script>
+var grid=document.getElementById('grid'),nEl=document.getElementById('n'),bar=document.getElementById('bar'),affEl=document.getElementById('aff'),total=0,left=0,snd=true,ctx=null,down=false,RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function build(){
+grid.innerHTML='';left=48;bar.style.width='0%';
+for(var i=0;i<48;i++){var d=document.createElement('div');d.className='b n';d.style.setProperty('--h',190+((Math.floor(i/6)*14+(i%6)*22)%140));d.style.animationDelay=(i*9)+'ms';grid.appendChild(d)}
+}
+var streak=0,lastT=0,nbuf=null,SC=[1,1.125,1.25,1.5,1.667,2];
+function sound(){
+if(!snd)return;
+try{
+ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+if(ctx.state==='suspended')ctx.resume();
+var now=performance.now();streak=(now-lastT<550)?streak+1:0;lastT=now;
+var k=SC[streak%6]*(streak>=6?1.5:1),t=ctx.currentTime,b=480*k*(.97+Math.random()*.06);
+var m=ctx.createGain();m.gain.value=.8;m.connect(ctx.destination);
+var o=ctx.createOscillator(),g=ctx.createGain();
+o.type='sine';o.frequency.setValueAtTime(b*.7,t);o.frequency.exponentialRampToValueAtTime(b*1.6,t+.05);o.frequency.exponentialRampToValueAtTime(b*.9,t+.16);
+g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.35,t+.008);g.gain.exponentialRampToValueAtTime(.001,t+.2);
+o.connect(g);g.connect(m);o.start(t);o.stop(t+.22);
+var o2=ctx.createOscillator(),g2=ctx.createGain();
+o2.type='sine';o2.frequency.setValueAtTime(210,t);o2.frequency.exponentialRampToValueAtTime(55,t+.1);
+g2.gain.setValueAtTime(.5,t);g2.gain.exponentialRampToValueAtTime(.001,t+.13);
+o2.connect(g2);g2.connect(m);o2.start(t);o2.stop(t+.14);
+if(!nbuf){var len=Math.floor(ctx.sampleRate*.035);nbuf=ctx.createBuffer(1,len,ctx.sampleRate);var c=nbuf.getChannelData(0);for(var i=0;i<len;i++)c[i]=(Math.random()*2-1)*Math.pow(1-i/len,2)}
+var s=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g3=ctx.createGain();
+s.buffer=nbuf;f.type='bandpass';f.frequency.value=3200+Math.random()*1200;f.Q.value=1.1;g3.gain.value=.5;
+s.connect(f);f.connect(g3);g3.connect(m);s.start(t);
+}catch(e){}
+}
+var AFF=['Kamu sudah berusaha keras','Tidak apa-apa istirahat sejenak','Kamu cukup, apa adanya','Satu langkah kecil tetap maju','Kamu lebih kuat dari yang kamu kira','Boleh kok tidak sempurna','Napas dulu, pelan-pelan','Kamu layak bahagia','Stres ini akan berlalu','Pelan-pelan juga sampai','Kamu berharga','Hebat, kamu sudah sejauh ini'],last=-1;
+function affirm(el,r){
+var i;do{i=Math.floor(Math.random()*AFF.length)}while(i===last);last=i;
+affEl.textContent=AFF[i];affEl.classList.remove('s');void affEl.offsetWidth;affEl.classList.add('s');
+if(RM)return;
+var f=document.createElement('div');
+f.className='fl';f.textContent=AFF[i];
+f.style.left=Math.max(90,Math.min(innerWidth-90,r.left+r.width/2))+'px';
+f.style.top=(r.top-8)+'px';
+f.addEventListener('animationend',function(){f.remove()});
+document.body.appendChild(f);
+}
+function burst(el,r){
+if(RM)return;
+var h=el.style.getPropertyValue('--h');
+for(var k=0;k<7;k++){
+var a=(k/7)*6.283+Math.random()*.6,d=r.width*(.55+Math.random()*.35),z=5+Math.random()*5,p=document.createElement('span');
+p.className='pt';p.style.width=p.style.height=z+'px';
+p.style.left=(r.left+r.width/2-z/2)+'px';p.style.top=(r.top+r.height/2-z/2)+'px';
+p.style.background='hsl('+h+' 90% 72%)';
+p.style.setProperty('--dx',Math.cos(a)*d+'px');p.style.setProperty('--dy',Math.sin(a)*d+'px');
+p.addEventListener('animationend',function(){this.remove()});
+document.body.appendChild(p);
+}
+}
+function pop(el){
+if(!el||!el.classList.contains('b')||el.classList.contains('p'))return;
+var r=el.getBoundingClientRect();
+el.classList.remove('n');el.classList.add('p');
+total++;left--;nEl.textContent=total;bar.style.width=((48-left)/48*100)+'%';
+sound();affirm(el,r);burst(el,r);
+if(navigator.vibrate){try{navigator.vibrate(8)}catch(e){}}
+if(left===0)setTimeout(build,900);
+}
+function at(e){pop(document.elementFromPoint(e.clientX,e.clientY))}
+grid.addEventListener('pointerdown',function(e){down=true;at(e)});
+grid.addEventListener('pointermove',function(e){if(down)at(e)});
+window.addEventListener('pointerup',function(){down=false});
+window.addEventListener('pointercancel',function(){down=false});
+document.getElementById('reset').onclick=build;
+var sb=document.getElementById('snd');
+sb.onclick=function(){snd=!snd;sb.textContent='Suara: '+(snd?'nyala':'mati');sb.setAttribute('aria-pressed',snd)};
+build();
+</script>
+</body>
+</html>
